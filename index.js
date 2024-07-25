@@ -25,7 +25,9 @@ const options = {
 };
 
 const specs = swaggerJsdoc(options);
-
+app.use(cors({
+  origin: '*', // Hoặc chỉ định các miền cụ thể thay vì '*' để tăng cường bảo mật
+}));
 // Middleware
 app.use(bodyParser.json()); // To parse JSON bodies
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(specs));
